@@ -1,0 +1,10 @@
+// Bootstrap overrides
+$primary: #0aa2c0; // $cyan-600
+
+$theme-colors: (
+        "primary": $primary
+);
+
+$font-family-base: 'PT Sans', sans-serif;
+
+@import '~bootstrap/scss/bootstrap';
