@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root "home#index"
+  devise_for :patients, controllers: {
+    registrations: 'patients/registrations'
+  }
+
+  root 'home#index'
 end

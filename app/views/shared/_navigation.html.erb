@@ -5,7 +5,9 @@
       <%= t('navigation.brand') %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -14,18 +16,30 @@
       </ul>
 
       <ul class="navbar-nav ml-md-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to t('navigation.signup'), root_path, class: 'nav-link', aria: { current: 'page' } %>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="oi oi-account-login"></span> <%= t('navigation.login') %>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end shadow-none" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><%= t('navigation.for_patients') %></a></li>
-            <li><a class="dropdown-item" href="#"><%= t('navigation.for_doctors') %></a></li>
-          </ul>
-        </li>
+
+        <% if current_patient %>
+          <li class="nav-item">
+            <%= link_to t('navigation.profile'), new_patient_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_patient_session_path, method: :delete, class: 'nav-link' do %>
+              <span class="oi oi-account-logout"></span> <%= t('navigation.logout') %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t('navigation.sign_up'), new_patient_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="oi oi-account-login"></span> <%= t('navigation.login') %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-none" aria-labelledby="navbarDropdown">
+              <li><%= link_to t('navigation.for_patients'), new_patient_session_path, class: 'dropdown-item' %></li>
+              <li><a class="dropdown-item" href="#"><%= t('navigation.for_doctors') %></a></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

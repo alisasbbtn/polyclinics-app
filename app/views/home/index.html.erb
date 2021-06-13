@@ -1,18 +1,20 @@
-<div class="container mt-5">
-  <h1 class="text-center">Поликлиника №3</h1>
-  <div class="d-flex h-100 flex-column justify-content-center text-center">
-    <%= image_tag 'undraw_medicine_b1ol.svg', height: 400, class: 'my-5' %>
+<div class="d-flex h-100 flex-column justify-content-center text-center">
+  <%= image_tag 'undraw_medicine_b1ol.svg', height: 400, class: 'my-5' %>
 
-      <!-- TODO: Hardcoded strings? -->
-      <p class="text-muted">
-        <span class="oi oi-map-marker"></span> ул. Котовая, 123
-      </p>
-      <p class="text-muted">
-        <span class="oi oi-phone"></span> +38 (099) 123-45-67
-      </p>
-      <p class="text-muted">
-        <span class="oi oi-envelope-open"></span> info@polyclinic.com
-      </p>
-      <button type="button" class="btn btn-outline-primary btn-lg align-self-center mt-2">Записаться на прием</button>
-  </div>
+  <h1 class="text-center my-3"><%= t('.title') %></h1>
+
+  <!-- TODO: Hardcoded strings? -->
+  <p class="text-muted">
+    <span class="oi oi-map-marker"></span> ул. Котовая, 123
+  </p>
+
+  <p class="text-muted">
+    <span class="oi oi-phone"></span> +38 (099) 123-45-67
+  </p>
+
+  <p class="text-muted">
+    <span class="oi oi-envelope-open"></span> info@polyclinic.com
+  </p>
+
+  <button type="button" class="btn btn-outline-primary btn-lg align-self-center mt-2">Записаться на прием</button>
 </div>
