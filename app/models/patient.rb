@@ -1,6 +1,6 @@
 class Patient < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one_attached :photo
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum gender: { male: 0, female: 1 }
@@ -9,6 +9,7 @@ class Patient < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 30 }
   validates :last_name, presence: true, length: { maximum: 30 }
   validates :patronymic, presence: true, length: { maximum: 30 }
+  validates :photo, attached: true
 
   def full_name
     "#{last_name} #{first_name} #{patronymic}"

@@ -196,6 +196,9 @@ ru:
       create: Создать %{model}
       submit: Сохранить %{model}
       update: Сохранить %{model}
+    label:
+      patient:
+        photo: Фотография
   number:
     currency:
       format:

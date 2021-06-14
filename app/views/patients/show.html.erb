@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4 offset-md-2">
-    <img src="https://via.placeholder.com/300" class="img-thumbnail"/>
+    <%= image_tag url_for(@patient.photo), width: 350, class: 'img-thumbnail' %>
   </div>
   <div class="col-md-6">
     <h3><%= @patient.full_name %></h3>

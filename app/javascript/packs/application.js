@@ -13,4 +13,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+require("@rails/activestorage").start()
+
 import "../stylesheets/application";
