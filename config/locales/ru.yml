@@ -1,4 +1,4 @@
-# from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ru.yml
+# Part from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ru.yml
 ru:
   activerecord:
     models:
@@ -53,7 +53,7 @@ ru:
       - суббота
     formats:
       default: "%d.%m.%Y"
-      long: "%-d %B %Y"
+      long: "%-d %B, %Y"
       short: "%-d %b"
     month_names:
       -
@@ -280,7 +280,6 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
-
   navigation:
     brand: 'Polyclinic #3'
     login: Вход
@@ -289,7 +288,6 @@ ru:
     sign_up: Регистрация
     logout: Выйти
     profile: Профиль
-
   patients:
     registrations:
       new:
@@ -300,7 +298,17 @@ ru:
       new:
         log_in: "Вход для пациента"
         login_btn: "Войти"
-
+    edit:
+      edit: Редактирование профиля
+      edit_btn: "Сохранить"
+    update:
+      success: "Профиль успешно обновлен."
   home:
     index:
       title: "Поликлиника №3"
+  profile:
+    unspecified: не указан
+    edit: "Редактировать профиль"
+  gender:
+    male: мужской
+    female: женский

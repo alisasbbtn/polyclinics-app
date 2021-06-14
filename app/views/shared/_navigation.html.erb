@@ -19,7 +19,7 @@
 
         <% if current_patient %>
           <li class="nav-item">
-            <%= link_to t('navigation.profile'), new_patient_registration_path, class: 'nav-link' %>
+            <%= link_to t('navigation.profile'), patient_path(current_patient), class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_patient_session_path, method: :delete, class: 'nav-link' do %>

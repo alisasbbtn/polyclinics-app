@@ -9,4 +9,14 @@ class Patient < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 30 }
   validates :last_name, presence: true, length: { maximum: 30 }
   validates :patronymic, presence: true, length: { maximum: 30 }
+
+  def full_name
+    "#{last_name} #{first_name} #{patronymic}"
+  end
+
+  def age
+    age = Date.today.year - birth_date.year
+    age -= 1 if Date.today < birth_date + age.years
+    age
+  end
 end

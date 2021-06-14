@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     registrations: 'patients/registrations'
   }
 
+  resources :patients
   root 'home#index'
 end

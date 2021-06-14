@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="text-center mb-4"><%= t(".edit") %></h2>
+
+    <%= form_for @patient do |f| %>
+      <%= render 'patients/shared/error_messages', resource: @patient %>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <%= f.label :last_name, class: 'form-label' %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+
+        <div class="col-md-4">
+          <%= f.label :first_name, class: 'form-label' %>
+          <%= f.text_field :first_name, autocomplete: 'first_name', class: 'form-control' %>
+        </div>
+
+        <div class="col-md-4">
+          <%= f.label :patronymic, class: 'form-label' %>
+          <%= f.text_field :patronymic, class: 'form-control' %>
+        </div>
+
+        <div class="col-12">
+          <%= f.label :birth_date, class: 'form-label' %>
+          <%= f.date_field :birth_date, class: 'form-control', max: Date.today %>
+        </div>
+
+        <div class="col-12">
+          <div class="row">
+            <div class="col-md-2">
+              <%= f.label :gender, class: 'form-label' %>
+            </div>
+            <div class="col-md-10">
+              <div class="form-check form-check-inline">
+                <%= f.radio_button :gender, 'male', class: 'form-check-input' %>
+                <%= f.label t('gender.male'), class: 'form-check-label', options: { for: 'genderMaleRadio' } %>
+              </div>
+              <div class="form-check form-check-inline">
+                <%= f.radio_button :gender, 'female', class: 'form-check-input' %>
+                <%= f.label t('gender.female'), class: 'form-check-label', options: { for: 'genderFemaleRadio' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.button t('.edit_btn'), class: 'btn btn-primary', type: 'submit' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
