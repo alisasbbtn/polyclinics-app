@@ -1,12 +1,15 @@
-// Bootstrap overrides
-// Currently not working
+@import "custom.scss";
+@import "~bootstrap/scss/bootstrap";
 
-//$primary: #0aa2c0; // $cyan-600
-//
-//$theme-colors: (
-//        "primary": $primary
-//);
+body {
+  background: $blue-100;
+}
 
-$font-family-base: 'PT Sans', sans-serif;
+html, body {
+  height: 100vh;
+}
 
-@import '~bootstrap/scss/bootstrap';
+.main-container {
+  background: $gray-100;
+  min-height: calc(100% - #{$nav-link-height} - #{$navbar-padding-y} * 2);
+}

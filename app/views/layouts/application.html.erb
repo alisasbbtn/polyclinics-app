@@ -20,9 +20,9 @@
 
 <body>
   <%= render "shared/navigation" %>
-  <%= render "shared/flash" %>
 
-  <div class="container mt-3">
+  <div class="container pt-4 main-container shadow-sm">
+    <%= render "shared/flash" %>
     <%= yield %>
   </div>
 </body>

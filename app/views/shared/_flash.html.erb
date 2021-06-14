@@ -1,5 +1,5 @@
 <% flash.each do |key, value| %>
-  <div class="container mt-3">
+  <div class="container mb-3">
     <div class="alert alert-dismissible fade show <%= key == "notice" ? "alert-primary" : "alert-danger" %>" role="alert">
       <%= value %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

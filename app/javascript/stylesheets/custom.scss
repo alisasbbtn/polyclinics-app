@@ -1,0 +1,22 @@
+// Must-have imports of bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+// Overrides
+$custom-colors: (
+        "primary": $blue-700
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+.btn-primary,
+.btn-outline-primary:hover {
+  color: #fff !important;
+}
+
+$dropdown-link-active-bg: $blue-700;
+
+$navbar-dark-color: rgba($white, .75);
+$navbar-dark-hover-color: $white;
+
+$font-family-base: 'PT Sans', sans-serif;
