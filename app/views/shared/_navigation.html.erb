@@ -12,17 +12,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- TODO: Pages -->
+        <li class="nav-item">
+          <%= link_to t('navigation.doctors'), doctors_path, class: 'nav-link' %>
+        </li>
       </ul>
 
       <ul class="navbar-nav ml-md-auto mb-2 mb-lg-0">
 
-        <% if current_patient %>
+        <% if current_patient || current_doctor %>
           <li class="nav-item">
-            <%= link_to t('navigation.profile'), patient_path(current_patient), class: 'nav-link' %>
+            <%= link_to t('navigation.profile'), current_patient ? patient_path(current_patient) : doctor_path(current_doctor), class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to destroy_patient_session_path, method: :delete, class: 'nav-link' do %>
+            <%= link_to current_patient ? destroy_patient_session_path : destroy_doctor_session_path, method: :delete, class: 'nav-link' do %>
               <span class="oi oi-account-logout"></span> <%= t('navigation.logout') %>
             <% end %>
           </li>
@@ -36,7 +38,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-none" aria-labelledby="navbarDropdown">
               <li><%= link_to t('navigation.for_patients'), new_patient_session_path, class: 'dropdown-item' %></li>
-              <li><a class="dropdown-item" href="#"><%= t('navigation.for_doctors') %></a></li>
+              <li><%= link_to t('navigation.for_doctors'), new_doctor_session_path, class: 'dropdown-item' %></li>
             </ul>
           </li>
         <% end %>

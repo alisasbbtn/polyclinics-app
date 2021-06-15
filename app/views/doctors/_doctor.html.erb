@@ -1,0 +1,12 @@
+<div class="d-flex py-3 align-items-center border-bottom">
+  <div class="me-3">
+    <%= link_to photo_or_placeholder(doctor, 100, 100, 'thumb-photo'), doctor_path(doctor) %>
+  </div>
+
+  <div class="flex-grow-1">
+    <h3><%= link_to doctor.full_name, doctor_path(doctor), class: 'link-primary text-decoration-none' %></h3>
+    <p class="mb-0 text-muted"><%= doctor.category.title %></p>
+  </div>
+
+  <button class="btn btn-outline-primary"><%= t('shared.make_an_appointment') %></button>
+</div>

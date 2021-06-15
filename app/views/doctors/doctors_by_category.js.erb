@@ -1,0 +1,5 @@
+document.querySelector('#doctors').innerHTML = "";
+
+<% @doctors.each do |doctor| %>
+  document.querySelector('#doctors').insertAdjacentHTML('beforeend', '<%= j render partial: doctor, locals: { doctor: doctor } %>');
+<% end %>

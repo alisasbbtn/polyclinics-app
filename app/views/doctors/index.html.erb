@@ -1,0 +1,11 @@
+<div class="col-md-8 offset-md-2">
+  <div class="mb-4">
+    <%= select("categories", "category_id", Category.all.collect { |p| [p.title, p.id] },
+               { include_blank: t('doctors.index.select_category') }, class: 'form-select category-select') %>
+  </div>
+  <div id="doctors">
+    <%= render @doctors %>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'doctors' %>

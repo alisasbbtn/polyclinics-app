@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-4 offset-md-2">
+    <%= photo_or_placeholder(@doctor, 300, 300, 'img-thumbnail') %>
+  </div>
+
+  <div class="col-md-6">
+    <h3><%= @doctor.full_name %></h3>
+    <h5 class="mb-3 text-muted"><%= @doctor.category.title %></h5>
+    <p>
+      <span class="oi oi-envelope-open me-2"></span><%= mail_to @doctor.email %>
+    </p>
+    <p>
+      <span class="oi oi-phone me-2"></span> <%= number_to_phone(@doctor.phone_number, country_code: 380) %>
+    </p>
+  </div>
+</div>

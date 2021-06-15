@@ -312,6 +312,9 @@ ru:
       edit_btn: Сохранить
     update:
       success: Профиль успешно обновлен.
+  doctors:
+    index:
+      select_category: Выберите категорию
   home:
     index:
       title: Поликлиника №3
