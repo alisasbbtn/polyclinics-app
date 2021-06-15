@@ -331,3 +331,7 @@ ru:
         login_doctor: Вход для врача
         login_btn: Войти
     make_an_appointment: Записаться на прием
+
+  unauthorized:
+    manage:
+      all: У вас нет доступа к данной странице.

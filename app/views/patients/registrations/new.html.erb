@@ -36,7 +36,7 @@
         <div class="col-md-6">
           <%= f.label :password, class: 'form-label' %>
           <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control', aria: { describedby: 'passwordHelp' } %>
-          <div id="passwordHelp" class="form-text"><%= t('.password_limit_notice', limit: @minimum_password_length) %></div>
+          <div id="passwordHelp" class="form-text"><%= t('.password_limit_notice', limit: @minimum_password_length)  %></div>
         </div>
 
         <div class="col-md-6">
