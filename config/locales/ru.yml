@@ -14,6 +14,15 @@ ru:
         password_confirmation: Подтверждение пароля
         gender: Пол
         birth_date: Дата рождения
+      doctor:
+        last_name: Фамилия
+        first_name: Имя
+        patronymic: Отчество
+        phone_number: Номер телефона
+        email: Электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        category: Категория
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
@@ -284,34 +293,38 @@ ru:
       short: "%d %b, %H:%M"
     pm: вечера
   navigation:
-    brand: 'Polyclinic #3'
+    brand: "Polyclinic #3"
     login: Вход
     for_patients: Для пациентов
     for_doctors: Для врачей
     sign_up: Регистрация
     logout: Выйти
     profile: Профиль
+    doctors: Наши врачи
   patients:
     registrations:
       new:
         sign_up: Регистрация нового пациента
-        password_limit_notice: '%{limit} символов минимум'
+        password_limit_notice: "%{limit} символов минимум"
         sign_up_btn: Зарегистрироваться
-    sessions:
-      new:
-        log_in: "Вход для пациента"
-        login_btn: "Войти"
     edit:
       edit: Редактирование профиля
-      edit_btn: "Сохранить"
+      edit_btn: Сохранить
     update:
-      success: "Профиль успешно обновлен."
+      success: Профиль успешно обновлен.
   home:
     index:
-      title: "Поликлиника №3"
+      title: Поликлиника №3
   profile:
     unspecified: не указан
-    edit: "Редактировать профиль"
+    edit: Редактировать профиль
   gender:
     male: мужской
     female: женский
+  shared:
+    sessions:
+      new:
+        login_patient: Вход для пациента
+        login_doctor: Вход для врача
+        login_btn: Войти
+    make_an_appointment: Записаться на прием

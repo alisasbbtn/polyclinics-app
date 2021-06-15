@@ -3,7 +3,7 @@
     <h2 class="text-center mb-4"><%= t(".edit") %></h2>
 
     <%= form_for @patient do |f| %>
-      <%= render 'patients/shared/error_messages', resource: @patient %>
+      <%= render 'shared/error_messages', resource: @patient %>
       <div class="row g-3">
         <div class="col-md-4">
           <%= f.label :last_name, class: 'form-label' %>

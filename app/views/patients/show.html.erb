@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-4 offset-md-2">
-    <%= image_tag url_for(@patient.photo), width: 350, class: 'img-thumbnail' %>
+    <%= photo_or_placeholder(@patient, 300, 300, 'img-thumbnail') %>
   </div>
   <div class="col-md-6">
     <h3><%= @patient.full_name %></h3>
     <p>
       <span class="fw-bold"><%= t('activerecord.attributes.patient.birth_date') %>:</span>
       <% if @patient.birth_date %>
-        <%= l @patient.birth_date, format: :long %> (<%= @patient.age %>)
+        <%= l @patient.birth_date, format: :long %>
       <% else %>
         <span class="text-muted"><%= t('profile.unspecified') %></span>
       <% end %>
@@ -19,6 +19,10 @@
       <% else %>
         <span class="text-muted"><%= t('profile.unspecified') %></span>
     <% end %>
+    </p>
+
+    <p>
+      <span class="oi oi-phone me-2"></span> <%= number_to_phone(@patient.phone_number, country_code: 380) %>
     </p>
 
     <%= link_to t('profile.edit'), edit_patient_path, class: 'btn btn-outline-primary', role: 'button' %>

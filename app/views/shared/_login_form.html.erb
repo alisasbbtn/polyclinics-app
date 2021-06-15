@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="text-center mb-4"><%= t("shared.sessions.new.login_#{type}") %></h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render 'shared/error_messages', resource: resource %>
+      <div class="mb-3">
+        <%= f.label :phone_number, class: 'form-label' %><br/>
+        <div class="input-group">
+          <div class="input-group-text">+380</div>
+          <%= f.telephone_field :phone_number, autocomplete: 'phone_number', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password, class: 'form-label' %>
+        <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+      </div>
+
+      <div class="actions text-center">
+        <%= f.button t('shared.sessions.new.login_btn'), class: 'btn btn-primary', type: 'submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>
