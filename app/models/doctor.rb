@@ -2,7 +2,7 @@ class Doctor < ApplicationRecord
   belongs_to :category
   has_one_attached :photo
 
-  devise :database_authenticatable
+  devise :database_authenticatable, :validatable, :validatable
 
   validates :phone_number, presence: true, uniqueness: true, length: { is: 9 }, numericality: true
   validates :first_name, presence: true, length: { maximum: 30 }

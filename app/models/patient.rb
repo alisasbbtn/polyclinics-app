@@ -1,7 +1,7 @@
 class Patient < ApplicationRecord
   has_one_attached :photo
 
-  devise :database_authenticatable, :registerable
+  devise :database_authenticatable, :registerable, :validatable
 
   enum gender: { male: 0, female: 1 }
 
