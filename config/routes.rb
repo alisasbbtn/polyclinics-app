@@ -15,7 +15,4 @@ Rails.application.routes.draw do
   resources :doctors, only: %i[show index] do
     resources :appointments
   end
-
-  get '/doctors_by_category', to: 'doctors#doctors_by_category'
-
 end

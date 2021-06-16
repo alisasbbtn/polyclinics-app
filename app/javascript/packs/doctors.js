@@ -7,7 +7,7 @@ document.body.querySelector('.category-select').addEventListener('change', funct
 
     Rails.ajax({
         type: 'GET',
-        url: '/doctors_by_category',
+        url: '/doctors',
         data: new URLSearchParams(myData).toString()
     });
 });
