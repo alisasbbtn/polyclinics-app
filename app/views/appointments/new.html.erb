@@ -1,0 +1,6 @@
+<div class="col-md-8 offset-md-2">
+  <h2>Запись к врачу <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary text-decoration-none' %></h2>
+  <div class="datetime" data-doctor-id="<%= @doctor.id %>">
+    <%= date_field 'appointments', 'date', class: 'form-control date-selector', min: Date.tomorrow %>
+  </div>
+</div>

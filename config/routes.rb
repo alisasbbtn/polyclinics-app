@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   }
 
   resources :patients, only: %i[show edit update]
-  resources :doctors, only: %i[show index]
+
+  resources :doctors, only: %i[show index] do
+    resources :appointments
+  end
 
   get '/doctors_by_category', to: 'doctors#doctors_by_category'
 

@@ -1,4 +1,5 @@
 class Patient < ApplicationRecord
+  has_many :appointments
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable, :validatable
@@ -18,5 +19,9 @@ class Patient < ApplicationRecord
     age = Date.today.year - birth_date.year
     age -= 1 if Date.today < birth_date + age.years
     age
+  end
+
+  def of?(doctor)
+    appointments.where(doctor_id: doctor.id).exists?
   end
 end

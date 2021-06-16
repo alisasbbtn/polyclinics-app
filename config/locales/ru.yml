@@ -299,7 +299,8 @@ ru:
     for_doctors: Для врачей
     sign_up: Регистрация
     logout: Выйти
-    profile: Профиль
+    patient_profile: Профиль пациента
+    doctor_profile: Профиль врача
     doctors: Наши врачи
   patients:
     registrations:
@@ -335,3 +336,4 @@ ru:
   unauthorized:
     manage:
       all: У вас нет доступа к данной странице.
+      appointments: Войдите как пациент, чтобы записаться к врачу.

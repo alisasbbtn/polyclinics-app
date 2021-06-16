@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :doctors_by_category
 
   def index
     @doctors = Doctor.all

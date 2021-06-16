@@ -1,5 +1,6 @@
 class Doctor < ApplicationRecord
   belongs_to :category
+  has_many :appointments
   has_one_attached :photo
 
   devise :database_authenticatable, :validatable, :validatable
@@ -12,5 +13,9 @@ class Doctor < ApplicationRecord
 
   def full_name
     "#{last_name} #{first_name} #{patronymic}"
+  end
+
+  def available?
+    appointments.active.count < 10
   end
 end

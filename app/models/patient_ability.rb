@@ -2,7 +2,11 @@ class PatientAbility
   include CanCan::Ability
 
   def initialize(patient)
-    can :manage, Patient, id: patient.id if patient.present?
+    if patient.present?
+      can :manage, Patient, id: patient.id
+      can :manage, Appointment, patient_id: patient.id
+      can :create, Appointment
+    end
     can :read, Doctor
   end
 end
