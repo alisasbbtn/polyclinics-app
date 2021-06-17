@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  load_and_authorize_resource except: :doctors_by_category
+  load_and_authorize_resource
 
   def index
     if params.key?(:category_id)
