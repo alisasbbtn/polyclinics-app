@@ -3,7 +3,7 @@ class Doctor < ApplicationRecord
   has_many :appointments, dependent: :delete_all
   has_one_attached :photo
 
-  devise :database_authenticatable, :validatable, :validatable
+  devise :database_authenticatable, :validatable, :validatable, authentication_keys: [:phone_number]
 
   validates :phone_number, presence: true, uniqueness: true, length: { is: 9 }, numericality: true
   validates :first_name, presence: true, length: { maximum: 30 }
