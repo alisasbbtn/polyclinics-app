@@ -1,0 +1,38 @@
+
+<div class="mx-5">
+  <h2>
+    <%= t('.all_appointments') %>
+    <% if current_patient %>
+      <%= t('.patients') %>
+      <%= link_to current_patient.full_name, patient_path(current_patient), class: 'link-primary' %>
+      <% if @doctor %>
+        <%= t('.from_doctor') %>
+        <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary' %>
+      <% end %>
+    <% elsif current_doctor %>
+      <%= t('.doctors') %>
+      <%= link_to current_doctor.full_name, doctor_path(current_doctor), class: 'link-primary' %>
+      <% if @patient %>
+        <%= t('.from_patient') %>
+        <%= link_to @patient.full_name, patient_path(@patient), class: 'link-primary' %>
+      <% end %>
+    <% end %>
+  </h2>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Врач</th>
+      <th scope="col">Пациент</th>
+      <th scope="col">Дата и время</th>
+      <th scope="col">Статус</th>
+    </tr>
+    </thead>
+    <%= render @appointments, locals: { local: true } %>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <%= paginate @appointments %>
+  </div>
+</div>

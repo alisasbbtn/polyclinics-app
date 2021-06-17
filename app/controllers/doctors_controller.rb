@@ -2,8 +2,8 @@ class DoctorsController < ApplicationController
   load_and_authorize_resource except: :doctors_by_category
 
   def index
-    if params.has_key?(:category_id)
-      @doctors = Doctor.where(category_id: params[:category_id])
+    if params.key?(:category_id)
+      @doctors = params[:category_id].blank? ? Doctor.all : Doctor.where(category_id: params[:category_id])
 
       respond_to do |format|
         format.js { render layout: false }

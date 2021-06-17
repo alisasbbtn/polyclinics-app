@@ -1,0 +1,7 @@
+<div class="d-flex align-items-center mb-3">
+  <%= photo_or_placeholder(doctor, 50, 50, 'thumb-photo') %>
+  <div class="d-flex flex-column ms-2">
+    <%= link_to doctor.full_name, doctor_path(doctor), class: 'link-primary text-decoration-none' %>
+    <span class="text-muted"><%= doctor.category.title %></span>
+  </div>
+</div>

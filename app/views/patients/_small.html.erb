@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center mb-3">
+  <%= photo_or_placeholder(patient, 50, 50, 'thumb-photo') %>
+  <div class="d-flex flex-column ms-2">
+    <%= link_to patient.full_name, patient_path(patient), class: 'link-primary text-decoration-none' %>
+  </div>
+</div>

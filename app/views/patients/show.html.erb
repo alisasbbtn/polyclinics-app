@@ -18,13 +18,14 @@
         <span><%= t("gender.#{@patient.gender}") %></span>
       <% else %>
         <span class="text-muted"><%= t('profile.unspecified') %></span>
-    <% end %>
+      <% end %>
     </p>
 
     <p>
       <span class="oi oi-phone me-2"></span> <%= number_to_phone(@patient.phone_number, country_code: 380) %>
     </p>
 
-    <%= link_to t('profile.edit'), edit_patient_path, class: 'btn btn-outline-primary', role: 'button' %>
+    <%= link_to t('profile.edit'), edit_patient_path, class: 'btn btn-primary', role: 'button' if current_patient %>
+    <%= link_to t('appointments.index.all_appointments'), patient_appointments_path(@patient), class: 'btn btn-outline-primary', role: 'button' %>
   </div>
 </div>

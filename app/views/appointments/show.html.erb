@@ -1,0 +1,35 @@
+<div class="col-md-8 offset-md-2">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2><%= t('.appointment', id: @appointment.id) %></h2>
+    <%= pill_with_status(@appointment) %>
+  </div>
+
+  <p><b><%= t('activerecord.attributes.appointment.datetime') %>:</b> <%= datetime(@appointment) %></p>
+
+  <% if current_patient %>
+    <%= render partial: 'doctors/small', locals: { doctor: @doctor } %>
+  <% else %>
+    <%= render partial: 'patients/small', locals: { patient: @appointment.patient } %>
+  <% end %>
+
+  <p><b><%= t('activerecord.attributes.appointment.recommendations') %>:</b>
+    <% if @appointment.recommendations.blank? %>
+    <p class="text-muted">
+      <% if current_patient %>
+        <%= t('.blank_recommendations.for_patient') %>
+      <% else %>
+        <%= t('.blank_recommendations.for_doctor') %>
+      <% end %>
+    </p>
+  <% else %>
+    <p><%= @appointment.recommendations %></p>
+  <% end %>
+  </p>
+  <% if @appointment.active? %>
+    <%= link_to t('.cancel_appointment'), doctor_appointment_path,
+                class: 'btn btn-danger', type: 'button', method: :delete if current_patient && @appointment.active? %>
+
+    <%= link_to t('.edit_recommendations'), edit_doctor_appointment_path,
+                class: 'btn btn-outline-primary', type: 'button' if current_doctor && @appointment.past? %>
+  <% end %>
+</div>

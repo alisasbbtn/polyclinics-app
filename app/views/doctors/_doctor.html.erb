@@ -9,5 +9,5 @@
   </div>
 
   <%= link_to(t('shared.make_an_appointment'), new_doctor_appointment_path(doctor),
-              class: 'btn btn-outline-primary', type: 'button') unless current_doctor %>
+              class: 'btn btn-outline-primary', type: 'button') unless current_doctor || !doctor.available? %>
 </div>

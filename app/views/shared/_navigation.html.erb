@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <%= link_to root_path, class: 'navbar-brand', aria: { current: 'page' } do %>
-      <%= image_tag('medical_services_white_24dp.svg', height: 24, class: 'd-inline-block align-text-top' ) %>
+      <%= image_tag('medical_services_white_24dp.svg', height: 24, class: 'd-inline-block align-text-top') %>
       <%= t('navigation.brand') %>
     <% end %>
 
@@ -18,17 +18,29 @@
       </ul>
 
       <ul class="navbar-nav ml-md-auto mb-2 mb-lg-0">
-
         <% if current_patient || current_doctor %>
-          <li class="nav-item">
-            <% if current_patient %>
-              <%= link_to t('navigation.patient_profile'), patient_path(current_patient), class: 'nav-link' %>
-            <% else %>
-              <%= link_to t('navigation.doctor_profile'), doctor_path(current_doctor), class: 'nav-link' %>
-            <% end %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= "#{t('navigation.patient')} #{current_patient.last_name}" if current_patient %>
+              <%= "#{t('navigation.doctor')} #{current_doctor.last_name}" if current_doctor %>
+
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-none" aria-labelledby="navbarDropdown">
+              <li><%= link_to t('navigation.profile'),
+                              current_patient ? patient_path(current_patient)
+                                : doctor_path(current_doctor),
+                              class: 'dropdown-item' %></li>
+              <li><%= link_to t('navigation.appointments'),
+                              current_patient ? patient_appointments_path(current_patient)
+                                : doctor_appointments_path(current_doctor),
+                              class: 'dropdown-item' %></li>
+            </ul>
           </li>
+
           <li class="nav-item">
-            <%= link_to current_patient ? destroy_patient_session_path : destroy_doctor_session_path, method: :delete, class: 'nav-link' do %>
+            <%= link_to current_patient ? destroy_patient_session_path : destroy_doctor_session_path,
+                        method: :delete, class: 'nav-link' do %>
               <span class="oi oi-account-logout"></span> <%= t('navigation.logout') %>
             <% end %>
           </li>

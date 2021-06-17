@@ -5,6 +5,7 @@ class PatientAbility
     if patient.present?
       can :manage, Patient, id: patient.id
       can :manage, Appointment, patient_id: patient.id
+      cannot :edit, Appointment
       can :create, Appointment
     end
     can :read, Doctor

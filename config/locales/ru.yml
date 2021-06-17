@@ -23,12 +23,17 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         category: Категория
+      appointment:
+        doctor: Врач
+        datetime: Дата и время
+        recommendations: Рекомендации
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
           has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+        wrong_time: Неверное время
   date:
     abbr_day_names:
       - В
@@ -299,9 +304,11 @@ ru:
     for_doctors: Для врачей
     sign_up: Регистрация
     logout: Выйти
-    patient_profile: Профиль пациента
-    doctor_profile: Профиль врача
     doctors: Наши врачи
+    profile: Профиль
+    appointments: Записи
+    patient: Пациент
+    doctor: Врач
   patients:
     registrations:
       new:
@@ -315,7 +322,38 @@ ru:
       success: Профиль успешно обновлен.
   doctors:
     index:
-      select_category: Выберите категорию
+      select_category: Все категории
+    show:
+      busy: К сожалению, доктор не доступен для записи.
+  appointments:
+    status:
+      closed: Закрыта
+      past: Прошла
+      active: Активна
+    index:
+      all_appointments: "Все записи "
+      patients: пациента
+      doctors: врача
+      from_doctor: у врача
+      from_patient: с пациентом
+    show:
+      cancel_appointment: Отменить запись
+      edit_recommendations: Редактировать рекомендации
+      blank_recommendations:
+        for_patient: "Врач пока не написал рекомендации."
+        for_doctor: |
+          Вы пока не написали рекомендации.
+          Добавьте рекомендации после приема, чтобы закрыть запись.
+      appointment: "Запись №%{id}"
+    new:
+      header: Запись к врачу
+    create:
+      created: "Вы успешно записались к врачу."
+    edit:
+      header: Рекомендация пациенту после приема №
+      save: "Сохранить рекомендацию"
+    destroy:
+      deleted: "Запись отменена."
   home:
     index:
       title: Поликлиника №3
@@ -332,7 +370,6 @@ ru:
         login_doctor: Вход для врача
         login_btn: Войти
     make_an_appointment: Записаться на прием
-
   unauthorized:
     manage:
       all: У вас нет доступа к данной странице.

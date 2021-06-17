@@ -5,7 +5,9 @@ class DoctorAbility
     can :read, Doctor
 
     if doctor.present?
+      can :show, Appointment, doctor_id: doctor.id
       can :update, Appointment, doctor_id: doctor.id
+
       can :read, Patient do |patient|
         patient.of?(doctor)
       end

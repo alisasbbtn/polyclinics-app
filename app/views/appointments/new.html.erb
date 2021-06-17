@@ -1,6 +1,23 @@
 <div class="col-md-8 offset-md-2">
-  <h2>Запись к врачу <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary text-decoration-none' %></h2>
-  <div class="datetime" data-doctor-id="<%= @doctor.id %>">
-    <%= date_field 'appointments', 'date', class: 'form-control date-selector', min: Date.tomorrow %>
-  </div>
+  <h2 div class="mb-3"> <%= t('appointments.new.header') %> <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary text-decoration-none' %></h2>
+  <%= form_with model: [@doctor, @appointment],
+                method: 'post', local: true,
+                class: 'appointment-form',
+                data: { doctor_id: @doctor.id } do |f| %>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.date_field :date, class: 'form-control date-selector', min: Date.tomorrow %>
+      </div>
+      <div class="col-md-4">
+        <select class="form-select" name="appointment[hour]" disabled>
+          <option selected value>Выберите время</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions text-center mt-3">
+      <%= f.button t('shared.make_an_appointment'), class: 'btn btn-primary', type: 'submit', disabled: true %>
+    </div>
+  <% end %>
 </div>
+
+<%= javascript_pack_tag 'appointments' %>

@@ -10,9 +10,15 @@ Rails.application.routes.draw do
     sessions: 'patients/sessions'
   }
 
-  resources :patients, only: %i[show edit update]
+  resources :patients, only: %i[show edit update] do
+    resources :appointments, only: :index
+  end
 
   resources :doctors, only: %i[show index] do
-    resources :appointments
+    resources :appointments do
+      collection do
+        get 'available_hours', to: 'appointments#available_hours'
+      end
+    end
   end
 end
