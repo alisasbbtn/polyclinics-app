@@ -4,7 +4,7 @@
   <title><%= (yield(:title) + " | " unless yield(:title).blank?).to_s + "Поликлиника №3" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= favicon_link_tag asset_path('medical_services_white_24dp.svg') %>
+  <%= favicon_link_tag asset_path('logo.svg') %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Google Fonts -->
@@ -20,14 +20,14 @@
 
 </head>
 
-<body>
-  <%= render "shared/navigation" %>
+  <body>
+    <%= render "shared/navigation" %>
 
-  <div class="container pt-4 main-container shadow-lg">
-    <%= render "shared/flash" %>
-    <div class="pt-3">
-      <%= yield %>
+    <div class="container pt-4 main-container shadow-lg">
+      <%= render "shared/flash" %>
+      <div class="pt-3">
+        <%= yield %>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

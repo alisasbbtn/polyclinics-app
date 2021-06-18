@@ -9,11 +9,7 @@ module ApplicationHelper
     if resource.photo.attached?
       cl_image_tag(resource.photo.key, width: width, height: height, gravity: 'faces', crop: 'fill', class: class_name)
     else
-      image_tag('Unknown_person.jpg', width: width, height: height, class: class_name)
+      image_tag('placeholder.jpg', width: width, height: height, class: class_name)
     end
-  end
-
-  def custom_number_to_phone(number)
-
   end
 end

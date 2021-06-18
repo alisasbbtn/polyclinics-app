@@ -3,11 +3,7 @@ class DoctorsController < ApplicationController
 
   def index
     if params.key?(:category_id)
-      @doctors = params[:category_id].blank? ? Doctor.all : Doctor.where(category_id: params[:category_id])
-
-      respond_to do |format|
-        format.js { render layout: false }
-      end
+      doctors_by_category
     else
       @doctor = Doctor.all
 
@@ -24,4 +20,15 @@ class DoctorsController < ApplicationController
       format.html
     end
   end
+
+  private
+
+  def doctors_by_category
+    @doctors = params[:category_id].blank? ? Doctor.all : Doctor.where(category_id: params[:category_id])
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
 end
+

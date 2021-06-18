@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   before_action :fix_params, only: :create
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do
     respond_to do |format|
       format.html do
         redirect_to (current_doctor ? main_app.root_url : new_patient_session_path),
