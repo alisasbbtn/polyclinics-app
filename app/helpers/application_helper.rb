@@ -9,7 +9,7 @@ module ApplicationHelper
     if resource.photo.attached?
       cl_image_tag(resource.photo.key, width: width, height: height, gravity: 'faces', crop: 'fill', class: class_name)
     else
-      image_tag("https://placekitten.com/g/#{width}/#{height}", class: class_name)
+      image_tag('Unknown_person.jpg', width: width, height: height, class: class_name)
     end
   end
 
