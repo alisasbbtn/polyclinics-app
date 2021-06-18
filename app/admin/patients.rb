@@ -10,7 +10,7 @@ ActiveAdmin.register Patient do
     column :patronymic
     column :birth_date
     column :gender do |patient|
-      t("gender.#{patient.gender}")
+      t("gender.#{patient.gender}") if patient.gender?
     end
     column :email
     column :phone_number do |doctor|
@@ -21,12 +21,13 @@ ActiveAdmin.register Patient do
 
   show do
     attributes_table do
+      row :id
       row :first_name
       row :last_name
       row :patronymic
       row :birth_date
       row :gender do |patient|
-        t("gender.#{patient.gender}")
+        t("gender.#{patient.gender}") if patient.gender?
       end
       row :email
       row :phone_number do |patient|
@@ -63,6 +64,12 @@ ActiveAdmin.register Patient do
   end
 
   controller do
+    def update
+      %w[password password_confirmation].each { |p| params[:patient].delete(p) } if params[:patient][:password].blank?
+
+      super
+    end
+
     def permitted_params
       # To fix 'Unpermitted parameters: :authenticity_token, :commit'
       # see: https://github.com/activeadmin/activeadmin/issues/2595

@@ -6,6 +6,13 @@ ActiveAdmin.register Category do
     actions
   end
 
+  show do
+    attributes_table do
+      row :id
+      row :title
+    end
+  end
+
   filter :title
 
   form do |f|
