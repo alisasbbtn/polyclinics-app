@@ -6,8 +6,7 @@ class AppointmentsController < ApplicationController
   rescue_from CanCan::AccessDenied do
     respond_to do |format|
       format.html do
-        redirect_to (current_doctor ? main_app.root_url : new_patient_session_path),
-                    notice: t('unauthorized.manage.appointments')
+        redirect_to new_patient_session_path
       end
     end
   end
@@ -125,7 +124,7 @@ class AppointmentsController < ApplicationController
       # Show doctor only their own appointments
       @appointments = @doctor.appointments
     else
-      raise CanCan::AccessDenied
+      raise CanCan::AccessDenied, t('unauthorized.manage.all')
     end
   end
 
@@ -139,7 +138,7 @@ class AppointmentsController < ApplicationController
       # Show patient only their own appointments
       @appointments = @patient.appointments
     else
-      raise CanCan::AccessDenied
+      raise CanCan::AccessDenied, t('unauthorized.manage.all')
     end
   end
 end

@@ -1,0 +1,6 @@
+<tr>
+  <th><%= link_to patient.id, patient_path(patient), class: 'link-primary' %></th>
+  <td><%= link_to patient.full_name, patient_path(patient), class: 'link-primary text-decoration-none' %></td>
+  <td><%= patient.gender ? t("gender.#{patient.gender}") : t('profile.unspecified') %></td>
+  <td><%= patient.birth_date ? l(@patient.birth_date, format: :long) : t('profile.unspecified') %></td>
+</tr>

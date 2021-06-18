@@ -1,5 +1,21 @@
 class PatientsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :index
+
+  def index
+    @doctor = Doctor.find(params[:doctor_id])
+
+    if current_doctor == @doctor
+      authorize! :index, current_doctor
+
+      @patients = Patient.where(id: @doctor.appointments.pluck(:patient_id).uniq)
+
+      respond_to do |format|
+        format.html
+      end
+    else
+      raise CanCan::AccessDenied.new(t('unauthorized.manage.all'), :index, Patient)
+    end
+  end
 
   def show
     @patient = Patient.find(params[:id])

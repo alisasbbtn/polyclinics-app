@@ -5,17 +5,17 @@
     <%= t('.all_appointments') %>
     <% if current_patient %>
       <%= t('.patients') %>
-      <%= link_to current_patient.full_name, patient_path(current_patient), class: 'link-primary' %>
+      <%= link_to current_patient.full_name, patient_path(current_patient), class: 'link-primary text-decoration-none' %>
       <% if @doctor %>
         <%= t('.from_doctor') %>
-        <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary' %>
+        <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary text-decoration-none' %>
       <% end %>
     <% elsif current_doctor %>
       <%= t('.doctors') %>
-      <%= link_to current_doctor.full_name, doctor_path(current_doctor), class: 'link-primary' %>
+      <%= link_to current_doctor.full_name, doctor_path(current_doctor), class: 'link-primary text-decoration-none' %>
       <% if @patient %>
         <%= t('.from_patient') %>
-        <%= link_to @patient.full_name, patient_path(@patient), class: 'link-primary' %>
+        <%= link_to @patient.full_name, patient_path(@patient), class: 'link-primary text-decoration-none' %>
       <% end %>
     <% end %>
   </h2>

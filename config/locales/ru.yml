@@ -320,12 +320,15 @@ ru:
     appointments: Записи
     patient: Пациент
     doctor: Врач
+    patients: "Пациенты"
   patients:
     registrations:
       new:
         sign_up: Регистрация нового пациента
         password_limit_notice: "%{limit} символов минимум"
         sign_up_btn: Зарегистрироваться
+    index:
+      patients: Пациенты врача
     edit:
       edit: Редактирование профиля
       edit_btn: Сохранить
@@ -386,7 +389,6 @@ ru:
   unauthorized:
     manage:
       all: У вас нет доступа к данной странице.
-      appointments: Войдите как пациент, чтобы записаться к врачу.
   active_admin:
     dashboard_welcome:
       welcome: "Добро пожаловать в панель управления."

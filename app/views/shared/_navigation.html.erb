@@ -35,6 +35,11 @@
                               current_patient ? patient_appointments_path(current_patient)
                                 : doctor_appointments_path(current_doctor),
                               class: 'dropdown-item' %></li>
+              <% if current_doctor %>
+                <li><%= link_to t('navigation.patients'),
+                                doctor_patients_path(current_doctor),
+                                class: 'dropdown-item' %></li>
+              <% end %>
             </ul>
           </li>
 

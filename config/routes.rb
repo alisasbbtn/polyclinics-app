@@ -22,5 +22,6 @@ Rails.application.routes.draw do
         get 'available_hours', to: 'appointments#available_hours'
       end
     end
+    resources :patients, only: :index
   end
 end

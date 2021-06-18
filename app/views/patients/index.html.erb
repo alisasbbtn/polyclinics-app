@@ -1,0 +1,20 @@
+<%= content_for :title, t('.patients') %>
+
+<div class="mx-5">
+  <h2>
+    <%= t('.patients') %>
+    <%= link_to @doctor.full_name, doctor_path(@doctor), class: 'link-primary text-decoration-none' %>
+  </h2>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"><%= t('activerecord.attributes.appointment.patient') %></th>
+      <th scope="col"><%= t('activerecord.attributes.patient.birth_date') %></th>
+      <th scope="col"><%= t('activerecord.attributes.patient.gender') %></th>
+    </tr>
+    </thead>
+    <%= render @patients %>
+  </table>
+</div>
