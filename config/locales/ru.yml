@@ -347,6 +347,7 @@ ru:
       doctors: врача
       from_doctor: у врача
       from_patient: с пациентом
+      details: "Подробнее..."
     show:
       cancel_appointment: Отменить запись
       edit_recommendations: Редактировать рекомендации

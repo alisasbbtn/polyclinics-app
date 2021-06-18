@@ -24,13 +24,14 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Врач</th>
-      <th scope="col">Пациент</th>
-      <th scope="col">Дата и время</th>
-      <th scope="col">Статус</th>
+      <th scope="col"><%= t('activerecord.attributes.appointment.doctor') %></th>
+      <th scope="col"><%= t('activerecord.attributes.appointment.patient') %></th>
+      <th scope="col"><%= t('activerecord.attributes.appointment.datetime') %></th>
+      <th scope="col"><%= t('activerecord.attributes.appointment.active') %></th>
+      <th scope=""></th>
     </tr>
     </thead>
-    <%= render @appointments, locals: { local: true } %>
+    <%= render @appointments %>
   </table>
 
   <div class="d-flex justify-content-center">

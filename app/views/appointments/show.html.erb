@@ -8,11 +8,16 @@
 
   <p><b><%= t('activerecord.attributes.appointment.datetime') %>:</b> <%= datetime(@appointment) %></p>
 
-  <% if current_patient %>
-    <%= render partial: 'doctors/small', locals: { doctor: @doctor } %>
-  <% else %>
-    <%= render partial: 'patients/small', locals: { patient: @appointment.patient } %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <p><b><%= t('activerecord.models.doctor') %>:</b> </p>
+      <%= render partial: 'doctors/small', locals: { doctor: @doctor } %>
+    </div>
+    <div class="col-md-6">
+      <p><b><%= t('activerecord.models.patient') %>:</b> </p>
+      <%= render partial: 'patients/small', locals: { patient: @appointment.patient } %>
+    </div>
+  </div>
 
   <p><b><%= t('activerecord.attributes.appointment.recommendations') %>:</b>
     <% if @appointment.recommendations.blank? %>

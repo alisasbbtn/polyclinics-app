@@ -4,4 +4,5 @@
   <td><%= link_to appointment.patient.full_name, patient_path(appointment.patient), class: 'link-primary text-decoration-none' %></td>
   <td><%= datetime(appointment) %></td>
   <td><%= pill_with_status(appointment) %></td>
+  <th><%= link_to t('appointments.index.details'), doctor_appointment_path(appointment.doctor, appointment), class: 'link-primary' %></th>
 </tr>
