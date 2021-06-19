@@ -1,6 +1,7 @@
 class Doctor < ApplicationRecord
   belongs_to :category
   has_many :appointments, dependent: :delete_all
+  has_many :patients, through: :appointments
   has_one_attached :photo
 
   devise :database_authenticatable, :validatable, :validatable, authentication_keys: [:phone_number]

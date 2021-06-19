@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
     if current_doctor == @doctor
       authorize! :index, current_doctor
 
-      @patients = Patient.where(id: @doctor.appointments.pluck(:patient_id).uniq)
+      @patients = @doctor.patients
 
       respond_to do |format|
         format.html

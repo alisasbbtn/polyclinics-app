@@ -1,5 +1,6 @@
 class Patient < ApplicationRecord
   has_many :appointments, dependent: :delete_all
+  has_many :doctors, through: :appointments
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable, :validatable, authentication_keys: [:phone_number]
@@ -22,6 +23,6 @@ class Patient < ApplicationRecord
   end
 
   def of?(doctor)
-    appointments.where(doctor_id: doctor.id).exists?
+    doctors.exists?(doctor.id)
   end
 end
